@@ -1,0 +1,17 @@
+from ..item.armor import Armor
+from ..item.default_catalog import HUNTING_BOW, LEATHER_ARMOR
+from ..item.item_catalog import ItemCatalog
+from ..item.weapon import Weapon
+from .starter_kit_factory import StarterKitFactory
+
+
+class RangerKitFactory(StarterKitFactory):
+
+    def __init__(self, catalog: ItemCatalog) -> None:
+        self._catalog = catalog
+
+    def create_weapon(self) -> Weapon:
+        return self._catalog.create_weapon(HUNTING_BOW)
+
+    def create_armor(self) -> Armor:
+        return self._catalog.create_armor(LEATHER_ARMOR)
